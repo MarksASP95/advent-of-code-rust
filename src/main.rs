@@ -49,7 +49,7 @@ fn get_shape_name_by_short_name(ssn: &ShapeNameShort) -> ShapeName {
 }
 
 
-fn beats(s: &ShapeName) -> ShapeName {
+fn loses_to(s: &ShapeName) -> ShapeName {
     return HashMap::from([
         (ShapeName::ROCK, ShapeName::SCISSORS),
         (ShapeName::PAPER, ShapeName::ROCK),
@@ -62,8 +62,8 @@ fn beats(s: &ShapeName) -> ShapeName {
 
 fn get_winner(s1: ShapeName, s2: ShapeName) -> Option<ShapeName> {
 
-    if beats(&s1) == s2 { return Some(s1); }
-    if beats(&s2) == s1 { return Some(s2); }
+    if loses_to(&s1) == s2 { return Some(s1); }
+    if loses_to(&s2) == s1 { return Some(s2); }
 
     return None;
 }
